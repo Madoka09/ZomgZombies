@@ -1,7 +1,7 @@
 var http = require('http');
 var path = require('path');
-var express = require('express'),
-    ipfilter = require('express-ipfilter').IpFilter;
+var express = require('express');
+
 
 var app = express();
 
@@ -25,10 +25,11 @@ app.get('/boing',function(request,response){
 });
 
 app.get('/victimas',function(request,response){
-    var ips = ['::ffff:127.0.0.1'];
+    var ips = [];
     var client_ip = request.connection.remoteAddress;
     if(ips.indexOf(client_ip) >= 0){
         response.render("boing");
+        // Imprimir en consola la IP: console.log(client_ip);
     }
     else{
         response.render("victimas");
@@ -36,8 +37,6 @@ app.get('/victimas',function(request,response){
 });
 
 app.use((request,response)=>response.status(404).render('404'));
-
-//Reglas del filtrado de IPs
 
 
 http.createServer(app).listen(3000,() =>
