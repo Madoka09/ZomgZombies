@@ -38,6 +38,9 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    /* Descomentar y cambiar el ancho para centrar tablas
+    margin-left: auto;
+    margin-right: auto;*/
 }
 
 td, th {
