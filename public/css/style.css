@@ -9,8 +9,9 @@
 }
 
 img{
-    width: 150px;
-    height: 150px;
+    display: block;
+    width: 10em;
+    height: auto;
 }
 
 h2{
