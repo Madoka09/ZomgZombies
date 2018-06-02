@@ -28,7 +28,8 @@ app.get('/victimas',function(request,response){
     var ips = []; //Introducir las IP a filtrar
     var client_ip = request.connection.remoteAddress;
     if(ips.indexOf(client_ip) >= 0){
-        response.render("boing");
+        response.render("404"); //mostrar error 404
+        // response.render("boing"); -Vista personalizada para error de no autorizacion
         console.log("Tu IP es: " + client_ip);
     }
     else{
