@@ -25,20 +25,21 @@ app.get('/boing',function(request,response){
 });
 
 app.get('/victimas',function(request,response){
-    var ips = [];
+    var ips = ['::ffff:127.0.0.1'];
     var client_ip = request.connection.remoteAddress;
     if(ips.indexOf(client_ip) >= 0){
         response.render("boing");
-        // Imprimir en consola la IP: console.log(client_ip);
+        console.log("Tu IP es: " + client_ip);
     }
     else{
         response.render("victimas");
+        console.log("Tu IP es: " + client_ip);
     }
 });
 
 app.use((request,response)=>response.status(404).render('404'));
 
 
-http.createServer(app).listen(3000,() =>
+http.createServer(app).listen(5000,() =>
 console.log('La aplicacion Zomg Zombies! está corriendo en el puerto 3000')
 );
